@@ -52,7 +52,7 @@ Notice what is happening on the second `Route`. When rendering a component
 through a `Route`, the component receives props _from_ the `Route` automatically
 that contain information on the route, including the URL path that triggered the
 `Route` to render. This is happening on _both_ of these `Route`s, but in the
-first `Route`, it is auotmatically being passed down. The issue here is that, in
+first `Route`, it is automatically being passed down. The issue here is that, in
 addition to Router props, we also want to pass in the data we have in state.
 
 The easiest way to handle this is to use the `render`. The `render` attribute of
@@ -84,7 +84,7 @@ export default MoviesPage
 ```
 
 At the moment, our __MoviesPage__ component is purely presentational. It is
-simply middle component betwene __App__ and __MoviesList__, but we will come
+simply middle component between __App__ and __MoviesList__, but we will come
 back to this component in a moment. Right now, if we try to run our React app,
 we get an error because __MovieList__ is not defined yet!
 
@@ -124,7 +124,7 @@ router links.
 
 Right now, we're using __React Router__ to display the __MoviesPage__ component
 when the url is `/movies`. We'll need to add in our first nested route within
-__MoviesPage__ so that going to '/movies/:movieId' will display details about a
+__MoviesPage__ so that going to `/movies/:movieId` will display details about a
 given movie using a __MovieShow__ component.
 
 Before that, let's create our __MovieShow__ component. Later on, we will
@@ -171,16 +171,16 @@ export default MoviesPage
 ```
 
 With the `MoviesPage` container we are now adding two `Route` components. You
-will notice that we are inheriting `match` from `this.props` this is a POJO
+will notice that we are inheriting `match` from `this.props`. This is a POJO
 (plain old Javascript object) that contains the current url. It is being passed
 in as part of the Router props from __App__. Using `match`, we are able to show
 stuff depending on what the `match.url` returns (in this example, it returns
-`movies/`). In the 2nd `Route` component we are defining a path of
+`movies/`). In the second `Route` component we are defining a path of
 `${match.url}/:movieId`. This will load the __MovieShow__ component when the url
 looks something like `movies/1`.
 
 Going briefly back to our __MoviesList__ component, when `movies` is mapped, our
-has `Link`s are each getting a unique path in the `to={...}` attribute, since
+`Link`s are each getting a unique path in the `to={...}` attribute, since
 each `movieID` is different.
 
 ```javascript
@@ -207,7 +207,7 @@ Refresh the page at `/movies`. Now, clicking a link changes the route,
 but we're not actually seeing any content about that movie that would be in our
 MovieShow page. You should only see the text `Movies Show Component!`.
 
-Just as we saw with __App__ the data we want to display on a particular
+Just as we saw with __App__, the data we want to display on a particular
 __MovieShow__ page is available in its parent, __MoviesPage__, as props. In
 order to to __MovieShow__ to display this content, we will need make our movies
 collection available within __MovieShow__:
@@ -254,7 +254,7 @@ Here, we've got our `movies` as an object in props. We've also got our Router
 props, from which we've extracted `match`. Within the `match` object is
 `params`, which contains any parameters from the URL path. In this case, we only
 have one, `movieId`, which we defined in __MoviesPage__. Combining info from
-these two props lets us access the specific movie that's ID matches the
+these two props lets us access the specific movie whose ID matches the
 `movieId` from the path, resulting in the correct movie title being displayed!
 
 
@@ -263,7 +263,7 @@ these two props lets us access the specific movie that's ID matches the
 So far we saw how to set up our nested routes. We did so by making two `Route`
 components within __MoviesPage__. One `Route` component that renders a component
 if it is a perfect match with the url or the nested `Route` if it includes the
-`match.url` and the nested key (in this case :movieId).
+`match.url` and the nested key (in this case `:movieId`).
 
 If you're thinking to yourself that props seem to be getting a little out of
 hand... well, you're right! Props can be unruly in complex apps, with multiple
